@@ -55,7 +55,7 @@ def augment_and_mix(image, severity=3, width=3, depth=-1, alpha=1.):
       np.random.dirichlet([alpha] * width))
   m = np.float32(np.random.beta(alpha, alpha))
 
-  mix = np.zeros_like(image)
+  mix = np.zeros_like(normalize(image))
   for i in range(width):
     image_aug = image.copy()
     d = depth if depth > 0 else np.random.randint(1, 4)
